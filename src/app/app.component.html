@@ -1,7 +1,28 @@
 <router-outlet />
 
-<asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
 
 
+<div class="d-flex m-5" style="width: 300px;">
+    <div class="col p-2">
+        <div class="row px-1">
+            <asl-google-signin-button type='standard' size='medium' [width]="300">
+            </asl-google-signin-button>
+        </div>
+        <div class="row m-1">
+            <button type="button" (click)="signInWithFB()" class="btn btn-primary btn-block">
+                Signin with Facebook
+                <i class="bi bi-facebook"></i>
+            </button>
+        </div>
+        <div class="row m-1">
+            <button type="button" class="btn btn-secondary btn-block" (click)="signInWithInsta()">
+                Signin with Instagram
+                <i class="bi bi-instagram"></i>
+            </button>
+        </div>
+        <div class="row m-1"></div>
+        <div class="row "></div>
 
-<button type="button" (click)="signInWithFB()" class="btn btn-primary btn-block">Signin with Facebook</button>
+
+    </div>
+</div>

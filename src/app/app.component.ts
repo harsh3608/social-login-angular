@@ -1,4 +1,4 @@
-import { FacebookLoginProvider, GoogleSigninButtonModule, SocialAuthService, SocialLoginModule, SocialUser } from '@abacritt/angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthService, SocialLoginModule, SocialUser } from '@abacritt/angularx-social-login';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -26,23 +26,31 @@ export class AppComponent implements OnInit {
       this.user = user;
       this.loggedIn = (user != null);
       console.log(user);
-      
+
     });
 
-    
+
   }
 
-
+  signInWithGoogle() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
 
 
   signInWithFB(): void { //Facebook Login
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
-  signOut():any{ //for google out
+  signInWithInsta(): void { //Instagram Login
+    window.open('https://api.instagram.com/oauth/authorize?client_id=7535566166492469&redirect_uri=http://localhost:4200/&scope=user_profile,user_media&response_type=code',
+      '_blank', 'noopener,noreferrer,width=800,height=600,top=100,left=100'
+    )
+  }
+
+  signOut(): any { //for logging out
     this.authService.signOut();
   }
 
-  
+
 
 }
