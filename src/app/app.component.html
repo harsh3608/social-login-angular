@@ -14,7 +14,7 @@
                 <i class="bi bi-facebook"></i>
             </button>
         </div>
-        <div class="row m-1">
+        <!-- <div class="row m-1">
             <button type="button" class="btn btn-secondary btn-block" (click)="signInWithInsta()">
                 Signin with Instagram
                 <i class="bi bi-instagram"></i>
@@ -26,8 +26,8 @@
             <div style="text-align:center">
                 <h1>Welcome to Angular Instagram OAuth!</h1>
                 <a href="http://localhost:3000/auth/instagram">Signup with Instagram</a>
-              </div>
-        </div>
+            </div>
+        </div> -->
 
 
     </div>
@@ -39,6 +39,22 @@
             Sign Out
             <i class="bi bi-box-arrow-right"></i>
         </button>
+    </div>
+    <div class="d-flex">
+        <div class="col m-2 p-2">
+            <div class="row">
+                <img [src]="user.photoUrl" alt="{{ user.name }}" class="profile-photo">
+            </div>
+            <div class="d-flex flex-row">
+                <div>Name: </div> <strong>{{ user.name}}</strong>
+            </div>
+            <div class="d-flex flex-row">
+                <div>Email:</div> <strong>{{ user.email}}</strong>
+            </div>
+            <div class="d-flex flex-row">
+                <div>Provider:</div> <strong>{{ user.provider}}</strong>
+            </div>
+        </div>
     </div>
 </div>
 
