@@ -1,7 +1,8 @@
-import { FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthService, SocialLoginModule, SocialUser } from '@abacritt/angularx-social-login';
+import { FacebookLoginProvider, GoogleSigninButtonModule, SocialAuthService, SocialLoginModule, SocialUser } from '@abacritt/angularx-social-login';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,10 @@ export class AppComponent implements OnInit {
   user!: SocialUser;
   loggedIn: boolean = false;
 
-  constructor(private authService: SocialAuthService) { }
+  constructor(
+    private authService: SocialAuthService,
+    private loginService: LoginService
+  ) { }
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
@@ -46,6 +50,6 @@ export class AppComponent implements OnInit {
     console.log('logged out');
   }
 
-
+ 
 
 }
